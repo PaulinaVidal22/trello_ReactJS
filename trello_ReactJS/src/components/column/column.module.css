@@ -1,0 +1,12 @@
+.column {
+    flex: 1;
+    margin: 0.5rem; /* Margen interno entre columnas */
+    background-color: rgba(15, 61, 83, 0.267);
+    padding: 1rem; /* Espaciado interno en las columnas */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+
+.column-footer-item {
+    color : #175ec9; 
+}

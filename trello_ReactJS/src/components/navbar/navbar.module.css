@@ -1,0 +1,16 @@
+.navbar-item, .navbar-link {
+    font-size: 1rem; 
+    font-weight: 400; 
+    color: whitesmoke;
+}
+
+.button.is-primary {
+    background-color: #175ec9; 
+    border-color: #175ec9; 
+}
+
+
+.button.is-primary:hover {
+    background-color: #0056b3; /* Azul más oscuro para el hover */
+    border-color: #0056b3; 
+}

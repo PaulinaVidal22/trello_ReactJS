@@ -1,10 +1,10 @@
 import React from "react";
 import { CardContent } from '../cardContent/cardContent';
-import {classes} from './card.module.css';
+// import {classes} from './card.module.css';
 
 // { title, description, dueDate, status, tagColor, priority, responsible }
 
-export function Card({ title, priority}) {
+export function Card({ title, priority, onClick}) {
 
     let tagColor = '';
 
@@ -24,12 +24,16 @@ export function Card({ title, priority}) {
     }
     return (
         <div    
-            className={`${classes.card} ${classes['clickable-card']}`}
+            //className={`${classes.card} ${classes['clickable-card']}`}
+            className="card clickable-card"
             onClick={onClick} 
             style={{ cursor: 'pointer' }}>
             <header className="card-header">
                 {}
-                <span className={`${classes['card-tag']} ${tagColor}`}></span>
+                <span 
+                className={`card-tag ${tagColor}`}
+                //className={`${classes['card-tag']} ${tagColor}`}
+                ></span>
             </header>
             {}
             <CardContent 

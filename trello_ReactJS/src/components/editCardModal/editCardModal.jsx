@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
+
 
 export function EditCardModal({ task, closeModal, updateTask, deleteTask }) {
     const [title, setTitle] = useState(task ? task.title : '');

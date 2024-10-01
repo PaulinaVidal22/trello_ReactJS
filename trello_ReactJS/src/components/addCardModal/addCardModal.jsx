@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 
 export function AddCardModal({ closeModal, postTask }) {
     const [title, setTitle] = useState('');
@@ -15,14 +15,14 @@ export function AddCardModal({ closeModal, postTask }) {
     };
     
     return (
-        <div id="addCardModal" class="modal">
+        <div id="addCardModal" className="modal">
         <div className="modal-background"></div>
         <div className="modal-content">
             <div className="box">
                 <h2 className="title">Add a new task</h2>
 
                 <form onSubmit={handleSubmit}>
-                    <div class="field">
+                    <div className="field">
                         <label className="label">Title</label>
                         <div className="control">
                             <input 

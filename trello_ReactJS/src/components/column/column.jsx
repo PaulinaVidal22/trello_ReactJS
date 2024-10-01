@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from 'react';
 import { Card } from '../card/card';
-import {classes} from './column.module.css';
+// import {classes} from './column.module.css';
 
-export function Column ({columnName, tasks, setSelectedTask, setIsEditModalOpen, openModal}){
+// setSelectedTask, setIsEditModalOpen,
 
+export function Column ({columnName, tasks, openModal}){
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [selectedTask, setSelectedTask] = useState(null);
+    
     const taskList = tasks.map((task) => (
         <Card 
             key={task.id}
@@ -17,14 +21,16 @@ export function Column ({columnName, tasks, setSelectedTask, setIsEditModalOpen,
             onClick={() => {
                 setSelectedTask(task);
                 setIsEditModalOpen(true);
-              }}
+                }
+            }
         />
     ));
 
     return (
         <div 
-        className={`${classes.column} column is-one-fifth`} 
-        data-status={columnName}>
+            className="column is-one-fifth"
+        //className={`${classes.column} column is-one-fifth`} 
+            data-status={columnName}>
             <p className="bd-notification is-info">{columnName}</p>
             <div className="tasks">
                 {taskList}
@@ -32,8 +38,10 @@ export function Column ({columnName, tasks, setSelectedTask, setIsEditModalOpen,
             <footer id = "todo-column-footer" className="column-footer">
             <a 
             href="#" 
-            className={classes['column-footer-item']} 
-            onClick={() => openModal()}>
+            className="column-footer-item"
+            //className={classes['column-footer-item']} 
+            onClick={() => openModal()}
+           >
                 + Add a card</a>
             </footer>
     </div> 

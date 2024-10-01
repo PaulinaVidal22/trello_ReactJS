@@ -23,14 +23,15 @@ function App() {
         const response = await fetch(url, { method: "GET" });
         const data = await response.json();
         setTasks(data);
+        return data;
     } catch (error) {
         console.error("Error fetching data:", error.message);
     }
   }
 
   useEffect(() => {
-    fetchTasks().then((newTask) => {
-      setTasks(newTask);
+    fetchTasks().then((newTasks) => {
+      setTasks(newTasks);
     });
   }, []);
 
@@ -118,7 +119,11 @@ const closeModal = () => {
       <Navbar />
       <PanelSection />
       <div className="main-content">
-        <ColumnSection tasks={tasks} />
+        <ColumnSection 
+          tasks={tasks}
+          // setSelectedTask={setSelectedTask} 
+          //setIsEditModalOpen={setIsEditModalOpen}
+          openModal={openModal}  />
       </div>
 
 

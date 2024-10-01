@@ -15,7 +15,7 @@ export function Column ({columnName, tasks,  openEditModal}){
             //tagColor={task.tagColor}
             priority={task.priority}
             // responsible={task.responsible}
-            openEditModal={openEditModal}
+            openEditModal={() => openEditModal(task)}
         />
     ));
 

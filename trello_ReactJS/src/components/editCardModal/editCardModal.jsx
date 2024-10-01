@@ -24,7 +24,7 @@ export function EditCardModal({ task, closeEditModal, updateTask, deleteTask }) 
         e.preventDefault();
         const updatedTask = { ...task, title, description, responsible, dueDate, status, priority };
         await updateTask(updatedTask);
-        Edit();
+        closeEditModal();
     };
 
     return (
@@ -42,7 +42,7 @@ export function EditCardModal({ task, closeEditModal, updateTask, deleteTask }) 
                             id="editCardTitle" 
                             className="input" 
                             type="text"
-                            //placeholder="Título" 
+                            placeholder="Title" 
                             value={title} 
                             onChange={(e) => setTitle(e.target.value)} 
                             required ></input>
@@ -122,27 +122,21 @@ export function EditCardModal({ task, closeEditModal, updateTask, deleteTask }) 
                     id="updateCardButton" 
                     className="button is-primary"
                     type="submit"
-                    // onClick={() => {
-                    //     updateTask(updatedTask);
-                    //     Edit();
-                    // }}
                     >Save Changes</button>
                     <button 
                     id="deleteCardButton" 
                     className="button is-light"
                     onClick={() => {
-                        deleteTask();
-                        closeEditModal();
+                        deleteTask(task.id);
                     }}
                     >Delete Card</button>
                 </form>
             </div>
         </div>
         <button 
-        type="button"
-        className="modal-close is-large" 
-        aria-label="close"
-        onClick={() => closeEditModal}
+            className="modal-close is-large" 
+            aria-label="close"
+            onClick={closeEditModal}
         ></button>
         </div>
     );

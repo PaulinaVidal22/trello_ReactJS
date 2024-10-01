@@ -21,48 +21,26 @@
       "id": "acf9"
     },
     {
-      "title": "task 4",
-      "description": "random task",
-      "dueDate": "2024-09-15",
-      "status": "To do",
-      "responsible": "User 4",
-      "priority": "Low",
-      "tagColor": "is-success",
-      "id": "4734"
-    },
-    {
-      "title": "task 5",
-      "description": "meh",
-      "dueDate": "2024-09-20",
-      "status": "In progress",
-      "responsible": "User 1",
-      "priority": "High",
-      "tagColor": "is-danger",
-      "id": "8a70"
-    },
-    {
       "id": "cf68",
       "title": "planificación",
       "description": "hola",
-      "responsible": "User 1",
       "dueDate": "2024-10-18",
-      "status": "Backlog"
-    },
-    {
-      "id": "87f3",
-      "title": "planificación",
-      "description": "hii",
-      "responsible": "User 1",
-      "dueDate": "2024-10-26",
-      "status": "To do"
-    },
-    {
-      "id": "49c0",
-      "title": "hola",
-      "description": "hiii",
-      "responsible": "User 1",
-      "dueDate": "",
       "status": "In progress"
+    },
+    {
+      "id": "25f2",
+      "title": "back",
+      "description": "idk",
+      "dueDate": "2024-10-31",
+      "status": "Done"
+    },
+    {
+      "id": "082a",
+      "title": "lo que sea ",
+      "description": "idk",
+      "responsible": "User 1",
+      "dueDate": "2024-11-01",
+      "status": "Blocked"
     }
   ]
 }

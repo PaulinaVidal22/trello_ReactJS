@@ -37,22 +37,23 @@ function App() {
         const response = await fetch(url,
             { method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newTask) });
+            body: JSON.stringify(newTask),});
 
-        if (response.ok) {
+        //if (response.ok) {
             const savedTask = await response.json();
             setTasks([...tasks, savedTask]);
-        }
-        return savedTask;
+            return savedTask;
+        //}
     } catch (error) {
         console.log("Error posting task: ", error);
     }
 }
 
   async function updateTask(updatedTask) {
+    // url + `/${updatedTask.id}`
     try {
-        const response = await fetch(url + `/${updatedTask.id}`,
-            { method: "PATCH",
+        const response = await fetch(`${url}/${updatedTask.id}`,
+            { method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedTask) 
           }
@@ -64,32 +65,22 @@ function App() {
           );
           setTasks(updatedTasks);
         }
-
-        // const data = await response.json();
-        // return data;
     } catch (error) {
         console.log("Error updating task: ", error);
     }
 }
+
 async function deleteTask(id) {
   try {
-      const response = await fetch(url + `/${id}`,
-          { method: "DELETE",
-              // headers: { "Content-Type": "application/json" },
-              // body: JSON.stringify(task)
-          });
-
-          if (response.ok) {
-            const updatedTasks = tasks.filter((task) => task.id !== id);
-            setTasks(updatedTasks);
-            closeModal();
-          }
-          
-          // const data = await response.json();
-          // return data;
+      const response = await fetch(url + `/${id}`, { method: "DELETE"});
+        if (response.ok) {
+          const updatedTasks = tasks.filter((task) => task.id !== id);
+          setTasks(updatedTasks);
+          closeEditModal();
+        }
   } catch (error) {
       console.log("Error deleting task: ", error);
-      closeModal();
+      closeEditModal();
   }
 }
 
@@ -132,7 +123,7 @@ const closeEditModal = () => {
       )}
       {isEditModalOpen && (
         <EditCardModal
-          closeEditModal={() => closeEditModal}
+          closeEditModal={closeEditModal}
           task={selectedTask}
           updateTask={updateTask}
           deleteTask={() => deleteTask(selectedTask.id)}

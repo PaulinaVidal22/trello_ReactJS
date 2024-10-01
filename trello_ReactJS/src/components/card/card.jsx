@@ -26,7 +26,7 @@ export function Card({ title, priority, openEditModal}) {
         <div    
             //className={`${classes.card} ${classes['clickable-card']}`}
             className="card clickable-card"
-            onClick={() => openEditModal(task)}
+            onClick={openEditModal}
             style={{ cursor: 'pointer' }}>
             <header className="card-header">
                 <span 

@@ -116,11 +116,19 @@ export function AddCardModal({closeModal, postTask }) {
                             </div>
                         </div>
                     </div>
-                    <button id="addCardButton" className="button is-primary" type="submit" onClick={() => closeModal}>Add</button>
+                    <button 
+                    id="addCardButton" 
+                    className="button is-primary" 
+                    type="submit"
+                    >Add</button>
                 </form>
             </div>
         </div>
-        <button className="modal-close is-large" aria-label="close" onClick={() => closeModal}></button>
+        <button 
+            className="modal-close is-large" 
+            aria-label="close" 
+            onClick={closeModal}
+        ></button>
     </div>
     
 );

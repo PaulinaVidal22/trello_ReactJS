@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export function AddCardModal({ closeModal, postTask }) {
+export function AddCardModal({closeModal, postTask }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [responsible, setResponsible] = useState('User 1');
@@ -15,7 +15,7 @@ export function AddCardModal({ closeModal, postTask }) {
     };
     
     return (
-        <div id="addCardModal" className="modal">
+        <div id="addCardModal" className='modal is-active'>
         <div className="modal-background"></div>
         <div className="modal-content">
             <div className="box">
@@ -116,11 +116,11 @@ export function AddCardModal({ closeModal, postTask }) {
                             </div>
                         </div>
                     </div>
-                    <button id="addCardButton" className="button is-primary" type="submit" onClick={closeModal}>Add</button>
+                    <button id="addCardButton" className="button is-primary" type="submit" onClick={() => closeModal}>Add</button>
                 </form>
             </div>
         </div>
-        <button className="modal-close is-large" aria-label="close" onClick={closeModal}></button>
+        <button className="modal-close is-large" aria-label="close" onClick={() => closeModal}></button>
     </div>
     
 );

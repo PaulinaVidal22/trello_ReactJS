@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 
-export function EditCardModal({ task, closeModal, updateTask, deleteTask }) {
+export function EditCardModal({ task, closeEditModal, updateTask, deleteTask }) {
     const [title, setTitle] = useState(task ? task.title : '');
     const [description, setDescription] = useState(task ? task.description : '');
     const [responsible, setResponsible] = useState(task ? task.responsible : 'User 1');
@@ -24,11 +24,11 @@ export function EditCardModal({ task, closeModal, updateTask, deleteTask }) {
         e.preventDefault();
         const updatedTask = { ...task, title, description, responsible, dueDate, status, priority };
         await updateTask(updatedTask);
-        closeModal();
+        Edit();
     };
 
     return (
-        <div id="editCardModal" className="modal">
+        <div className={`modal ${task ? 'is-active' : ''}`} id="editCardModal">
         <div className="modal-background"></div>
         <div className="modal-content">
             <div className="box">
@@ -67,7 +67,7 @@ export function EditCardModal({ task, closeModal, updateTask, deleteTask }) {
                             className="input" 
                             type="date"
                             value={dueDate} 
-                            onChange={(e) => setDeadline(e.target.value)}
+                            onChange={(e) => setDueDate(e.target.value)}
                             ></input>
                         </div>
                     </div>
@@ -124,7 +124,7 @@ export function EditCardModal({ task, closeModal, updateTask, deleteTask }) {
                     type="submit"
                     // onClick={() => {
                     //     updateTask(updatedTask);
-                    //     closeModal();
+                    //     Edit();
                     // }}
                     >Save Changes</button>
                     <button 
@@ -132,7 +132,7 @@ export function EditCardModal({ task, closeModal, updateTask, deleteTask }) {
                     className="button is-light"
                     onClick={() => {
                         deleteTask();
-                        closeModal();
+                        closeEditModal();
                     }}
                     >Delete Card</button>
                 </form>
@@ -142,7 +142,7 @@ export function EditCardModal({ task, closeModal, updateTask, deleteTask }) {
         type="button"
         className="modal-close is-large" 
         aria-label="close"
-        onClick={closeModal}
+        onClick={() => closeEditModal}
         ></button>
         </div>
     );

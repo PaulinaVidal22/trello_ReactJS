@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
 import { Card } from '../card/card';
 // import {classes} from './column.module.css';
 
 
-export function Column ({columnName, tasks, openModal, handleCardClick}){
+export function Column ({columnName, tasks,  openEditModal}){
     
     
     const taskList = tasks.map((task) => (
@@ -16,7 +15,7 @@ export function Column ({columnName, tasks, openModal, handleCardClick}){
             //tagColor={task.tagColor}
             priority={task.priority}
             // responsible={task.responsible}
-            handleCardClick={handleCardClick}
+            openEditModal={openEditModal}
         />
     ));
 
@@ -29,15 +28,16 @@ export function Column ({columnName, tasks, openModal, handleCardClick}){
             <div className="tasks">
                 {taskList}
             </div>
-            <footer id = "todo-column-footer" className="column-footer">
-            <a 
-            href="#" 
+            {/* <footer id = "todo-column-footer" className="column-footer">
+            <button
+            //href="#" 
             className="column-footer-item"
             //className={classes['column-footer-item']} 
-            onClick={() => openModal()}
+            //onClick={() => openModal()}
+            onClick={openModal}
            >
-                + Add a card</a>
-            </footer>
+                + Add a card</button>
+            </footer> */}
     </div> 
     );
 }

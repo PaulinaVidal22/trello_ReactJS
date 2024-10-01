@@ -38,34 +38,45 @@ function App() {
             { method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newTask) });
-        const savedTask = await response.json();
-        setTasks([...tasks, savedTask]);
-        return data;
+
+        if (response.ok) {
+            const savedTask = await response.json();
+            setTasks([...tasks, savedTask]);
+        }
+        return savedTask;
     } catch (error) {
         console.log("Error posting task: ", error);
     }
 }
 
-  async function updateTask(task) {
+  async function updateTask(updatedTask) {
     try {
-        const response = await fetch(url + `/${task.id}`,
+        const response = await fetch(url + `/${updatedTask.id}`,
             { method: "PATCH",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(task) 
+            body: JSON.stringify(updatedTask) 
           }
         );
-        const data = await response.json();
-        return data;
+
+        if (response.ok) {
+          const updatedTasks = tasks.map((task) =>
+            task.id === updatedTask.id ? updatedTask : task
+          );
+          setTasks(updatedTasks);
+        }
+
+        // const data = await response.json();
+        // return data;
     } catch (error) {
         console.log("Error updating task: ", error);
     }
 }
-async function deleteTask(task) {
+async function deleteTask(id) {
   try {
-      const response = await fetch(url + `/${task.id}`,
+      const response = await fetch(url + `/${id}`,
           { method: "DELETE",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(task)
+              // headers: { "Content-Type": "application/json" },
+              // body: JSON.stringify(task)
           });
 
           if (response.ok) {
@@ -90,9 +101,15 @@ const closeModal = () => {
   setIsAdditionModalOpen(false);
 };
 
-const handleCardClick = (task) => {
+const openEditModal = (task) => {
   setSelectedTask(task);
   setIsEditModalOpen(true);
+};
+
+
+const closeEditModal = () => {
+  setIsEditModalOpen(false);
+  setSelectedTask(null);
 };
 
   return (
@@ -100,10 +117,13 @@ const handleCardClick = (task) => {
       <Navbar />
       <PanelSection />
       <div className="main-content">
+        <div className="button-container">
+          <button className={`button customButton`} onClick={() => openModal()}> + add a card</button>
+        </div>
         <ColumnSection 
           tasks={tasks}
-          handleCardClick={handleCardClick}
-          openModal={openModal}  />
+          openEditModal={openEditModal}
+          />
       </div>
 
 
@@ -112,9 +132,9 @@ const handleCardClick = (task) => {
       )}
       {isEditModalOpen && (
         <EditCardModal
-          closeModal={() => setIsEditModalOpen(false)}
-          updateTask={updateTask}
+          closeEditModal={() => closeEditModal}
           task={selectedTask}
+          updateTask={updateTask}
           deleteTask={() => deleteTask(selectedTask.id)}
         />
       )} 

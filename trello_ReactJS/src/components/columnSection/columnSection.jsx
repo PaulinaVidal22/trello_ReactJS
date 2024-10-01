@@ -2,7 +2,7 @@ import React from "react";
 import { Column } from '../column/column';
 //import classes from './columnSection.module.css'
 
-export function ColumnSection({tasks, handleCardClick, openModal}){
+export function ColumnSection({tasks, openEditModal}){
   
     const columnNames = ['Backlog', 'To do', 'In progress', 'Blocked', 'Done' ]
     
@@ -12,8 +12,8 @@ export function ColumnSection({tasks, handleCardClick, openModal}){
         return <Column key={columnName} 
                         columnName={columnName} 
                         tasks={columnTasks} 
-                        handleCardClick={handleCardClick}
-                        openModal={openModal}/>;
+                        openEditModal={openEditModal}
+                        />;
     });
 
 

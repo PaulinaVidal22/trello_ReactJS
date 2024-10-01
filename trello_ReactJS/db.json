@@ -1,54 +1,68 @@
 {
-    "tasks": [
-      {
-        "title": "task 1",
-        "description": "whatever",
-        "dueDate": "2024-09-08",
-        "status": "To Do",
-        "responsible": "User 1",
-        "priority": "Low",
-        "tagColor": "is-success",
-        "id": "d135"
-      },
-      {
-        "title": "task 2",
-        "description": "Generate Ideas",
-        "dueDate": "2024-09-11",
-        "status": "Backlog",
-        "responsible": "User 2",
-        "priority": "High",
-        "tagColor": "is-danger",
-        "id": "acf9"
-      },
-      {
-        "title": "task 3",
-        "description": "idk",
-        "dueDate": "2024-09-13",
-        "status": "Blocked",
-        "responsible": "User 3",
-        "priority": "Medium",
-        "tagColor": "is-warning",
-        "id": "1998"
-      },
-      {
-        "title": "task 4",
-        "description": "random task",
-        "dueDate": "2024-09-15",
-        "status": "Done",
-        "responsible": "User 4",
-        "priority": "Low",
-        "tagColor": "is-success",
-        "id": "4734"
-      },
-      {
-        "title": "task 5",
-        "description": "meh",
-        "dueDate": "2024-09-20",
-        "status": "In progress",
-        "responsible": "User 1",
-        "priority": "High",
-        "tagColor": "is-danger",
-        "id": "8a70"
-      }
-    ]
-  }
+  "tasks": [
+    {
+      "title": "task 1",
+      "description": "whatever",
+      "dueDate": "2024-09-08",
+      "status": "To Do",
+      "responsible": "User 1",
+      "priority": "Low",
+      "tagColor": "is-success",
+      "id": "d135"
+    },
+    {
+      "title": "task 2",
+      "description": "Generate Ideas",
+      "dueDate": "2024-09-11",
+      "status": "Backlog",
+      "responsible": "User 2",
+      "priority": "High",
+      "tagColor": "is-danger",
+      "id": "acf9"
+    },
+    {
+      "title": "task 4",
+      "description": "random task",
+      "dueDate": "2024-09-15",
+      "status": "To do",
+      "responsible": "User 4",
+      "priority": "Low",
+      "tagColor": "is-success",
+      "id": "4734"
+    },
+    {
+      "title": "task 5",
+      "description": "meh",
+      "dueDate": "2024-09-20",
+      "status": "In progress",
+      "responsible": "User 1",
+      "priority": "High",
+      "tagColor": "is-danger",
+      "id": "8a70"
+    },
+    {
+      "id": "cf68",
+      "title": "planificación",
+      "description": "hola",
+      "responsible": "User 1",
+      "dueDate": "2024-10-18",
+      "status": "Backlog"
+    },
+    {
+      "id": "87f3",
+      "title": "planificación",
+      "description": "hii",
+      "responsible": "User 1",
+      "dueDate": "2024-10-26",
+      "status": "To do"
+    },
+    {
+      "id": "49c0",
+      "title": "hola",
+      "description": "hiii",
+      "responsible": "User 1",
+      "dueDate": "",
+      "status": "In progress"
+    }
+  ]
+}

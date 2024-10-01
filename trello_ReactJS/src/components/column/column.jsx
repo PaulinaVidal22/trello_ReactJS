@@ -23,7 +23,7 @@ export function Column ({columnName, tasks, openModal, handleCardClick}){
     return (
         <div 
             className="column is-one-fifth"
-        //className={`${classes.column} column is-one-fifth`} 
+            //className={`${classes.column} column is-one-fifth`} 
             data-status={columnName}>
             <p className="bd-notification is-info">{columnName}</p>
             <div className="tasks">

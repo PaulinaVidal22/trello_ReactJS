@@ -4,7 +4,7 @@ import { CardContent } from '../cardContent/cardContent';
 
 // { title, description, dueDate, status, tagColor, priority, responsible }
 
-export function Card({ title, priority, handleCardClick}) {
+export function Card({ title, priority}) {
 
     let tagColor = '';
 
@@ -26,7 +26,6 @@ export function Card({ title, priority, handleCardClick}) {
         <div    
             //className={`${classes.card} ${classes['clickable-card']}`}
             className="card clickable-card"
-            handleCardClick={handleCardClick} 
             style={{ cursor: 'pointer' }}>
             <header className="card-header">
                 {}

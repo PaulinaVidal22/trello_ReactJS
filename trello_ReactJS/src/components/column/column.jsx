@@ -2,27 +2,21 @@ import React, { useState } from 'react';
 import { Card } from '../card/card';
 // import {classes} from './column.module.css';
 
-// setSelectedTask, setIsEditModalOpen,
 
-export function Column ({columnName, tasks, openModal}){
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [selectedTask, setSelectedTask] = useState(null);
+export function Column ({columnName, tasks, openModal, handleCardClick}){
+    
     
     const taskList = tasks.map((task) => (
         <Card 
             key={task.id}
             title={task.title}
-            description={task.description}
-            dueDate={task.dueDate}
-            status={task.status}
-            tagColor={task.tagColor}
+            // description={task.description}
+            // dueDate={task.dueDate}
+            // status={task.status}
+            //tagColor={task.tagColor}
             priority={task.priority}
-            responsible={task.responsible}
-            onClick={() => {
-                setSelectedTask(task);
-                setIsEditModalOpen(true);
-                }
-            }
+            // responsible={task.responsible}
+            handleCardClick={handleCardClick}
         />
     ));
 

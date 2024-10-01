@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Navbar } from './components/navbar/navbar';
 import { PanelSection } from './components/panelSection/panelSection';
 import { ColumnSection } from './components/columnSection/columnSection';
-// import {Column} from './components/column/column';
-// import {Card} from './components/card/card';
-// import {CardContent} from './components/cardContent/cardContent';
 import {EditCardModal} from './components/editCardModal/editCardModal.jsx';
 import { AddCardModal } from './components/addCardModal/addCardModal.jsx';
 import './App.css';
@@ -16,7 +13,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
-  const [isAdditionModalOpen, setIsModalOpen] = useState(false);
+  const [isAdditionModalOpen, setIsAdditionModalOpen] = useState(false);
 
   async function fetchTasks() {
     try {
@@ -85,33 +82,17 @@ async function deleteTask(task) {
   }
 }
 
-// const getCardsByStatus = (status) => {
-//   return tasks
-//     .filter((task) => task.status === status)
-//     .map((task) => (
-//       <Card
-//       key={task.id}
-//       title={task.title}
-//       description={task.description}
-//       dueDate={task.dueDate}
-//       status={task.status}
-//       tagColor={task.tagColor}
-//       priority={task.priority}
-//       responsible={task.responsible}
-//         onClick={() => {
-//           setSelectedTask(task);
-//           setIsEditModalOpen(true);
-//         }}
-//       />
-//     ));
-// };
-
 const openModal = () => {
-  setIsModalOpen(true);
+  setIsAdditionModalOpen(true);
 };
 
 const closeModal = () => {
-  setIsModalOpen(false);
+  setIsAdditionModalOpen(false);
+};
+
+const handleCardClick = (task) => {
+  setSelectedTask(task);
+  setIsEditModalOpen(true);
 };
 
   return (
@@ -121,8 +102,7 @@ const closeModal = () => {
       <div className="main-content">
         <ColumnSection 
           tasks={tasks}
-          // setSelectedTask={setSelectedTask} 
-          //setIsEditModalOpen={setIsEditModalOpen}
+          handleCardClick={handleCardClick}
           openModal={openModal}  />
       </div>
 
